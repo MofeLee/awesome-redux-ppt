@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>reveal.js – The HTML Presentation Framework</title>
+        <title>Redux - 简约的魅力</title>
 
         <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
         <meta name="author" content="Hakim El Hattab">
@@ -139,12 +139,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     <section>
                         <h2>Flux是如何解决这个问题的</h2>
 
-                        <img src="/img/flux.png">
+                        <img src="/img/flux2.png" class="fragment">
 
                         <aside class="notes" data-markdown="">
                             为了防止前端复杂页面变的不可预测
 
                             facebook提出了flux应用架构
+
+                            (展示图片)
 
                             在flux应用架构中
 
@@ -164,6 +166,116 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             我们终于可以预测我们的应用是如何改变的了！！
 
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>理解flux</h2>
+
+                        <img src="/img/flux1.png" alt="">
+
+                        <aside class="notes" data-markdown="">
+                            事实上，我们可以把像这样的数据流
+
+                            理解为向河里丢石子
+
+                            action是我们的石头
+
+                            dispatch是手
+
+                            当我们需要改变平静的湖面时
+
+                            只需要把这个action dispatch到湖里就行
+
+                            注意，这里的湖指的不是view层
+
+                            得益于react,我们能更优雅的通过store来控制view层
+
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Redux</h1>
+
+                        <aside class="notes" data-markdown="">
+                            事实上，flux只是一个软件架构的思想
+
+                            在实际应用中，我们需要自己实现其中的细节
+
+                            其中，我认为最优雅的实现就是redux
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>为什么使用redux</h2>
+
+                        <img class="fragment" src="/img/plot.png" alt="">
+
+                        <aside class="notes" data-markdown="">
+                            事实上，传统的项目的开发过程中
+
+                            如果组件之间的关联性越来越强烈时
+
+                            我们的应用复杂程序会呈指数型增长
+
+                            我们需要一种可以像docker swarm
+
+                            或者像google的mapreduce一样
+
+                            弹性并且无痛的增长我们的应用
+
+                            这里简单的提下
+
+                            docker swarm是一种新型的web部署方式
+
+                            基于云运算
+
+                            我们可以在运行高峰时在数分钟内运行起成白上千台应用服务器
+
+                            需要做的只是用docker启动服务
+
+                            它提供一种自动发现网内，并自动配置的机制
+
+                            在讨论redux如何实现这个之前
+
+                            我想先谈谈科赫曲线
+                        </aside>
+                    </section>
+
+                    <section data-background="/img/snowflakes.jpg">
+                        <h1 style="color: white; background-color: rgba(0,0,0,.6)">科赫曲线</h1>
+
+                        <img class="fragment" src="/img/kochCurves.jpg" alt="" style="background-color:white;">
+
+                        <aside class="notes" data-markdown="">
+                            科赫曲线也叫做雪花曲线
+
+                            （展示图片）
+
+                            因为形状很像雪花
+
+                            乍一看好像很复杂
+
+                            仔细看这张图
+
+                            你会发现其实这是一张很有趣的图片
+
+                            当我们把这张图分成数个小块时
+
+                            每个小块都是整体缩小后的形状
+
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>分解科赫曲线图</h2>
+
+                        <img src="/img/koch2.png" alt="">
+
+                        <aside class="notes" data-markdown="">
+                            
                         </aside>
                     </section>
                 </section>
@@ -210,6 +322,8 @@ Reveal.initialize({
 });
 
         </script>
+
+        <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
 
     </body>
 </html>

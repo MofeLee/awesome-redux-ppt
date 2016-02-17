@@ -361,15 +361,101 @@ var secondState = reducer(initState, '增加counter');
 
                             判断传入的动作是否为预定义动作
 
-                            如果是，然后作用后的结果
+                            如果是，然后返回作用后的结果
 
                             否则原样返回
 
                             这段代码已经和redux里的reducer的概念相差不大了
+
+                            我们在回头看看redux
                         </aside>
                     </section>
                 </section>
 
+                <section>
+                    <h2>redux 三原则</h2>
+
+                    <ul>
+                        <li>单一数据源</li>
+                        <li class="fragment" data-fragment-index="1">State只读</li>
+                        <li class="fragment" data-fragment-index="2">使用纯函数来修改State</li>
+                    </ul>
+
+                    <aside class="notes" data-markdown="">
+                        在redux里，遵循三大原则
+
+                        ### 单一数据源
+
+                        整个应用的 state 被储存在一棵 object 中，并且这个 object 只存在于唯一一个 store 中。
+
+                        ### State只读
+
+                        惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。
+
+                        ### 使用纯函数来修改State
+
+                        这个纯函数就是之前定义的那个reducer
+
+                        纯函数指的是不会修改传入的参数
+
+                        执行函数时，不会调用任何不可控制的外部组件
+
+                        例如网络访问，磁盘读写，数据库查询
+
+                        如果直接影响State的代码调用了外部组件
+
+                        会使得我们的状态变得不可预测
+
+                        混乱的应用状态就是从这里开始的
+
+                    </aside>
+                </section>
+
+                <section>
+
+                    <h2>redux数据流图</h2>
+
+                    <img src="/img/redux-arch.jpg" style="width: 70%">
+
+                    <aside class="notes" data-markdown="">
+                        最后，以一张图结束我们今天的课程
+
+                        事实上，view Provider是react和redux连接的桥梁
+
+                        但即使我们的应用不是由react构成，也能使用redux
+
+                        与之前不同的是，应用状态是由reducer改变的
+
+                        action经过redux的中间件处理后
+
+                        在经过reducer来改变store
+
+                        改变完成后
+
+                        redux会检查更新后的状态是否与之前不同
+
+                        如果不同，则提交给view Provider处理
+
+                        在view provider中react的virtual dom 执行diff算法
+
+                        并以最优的方式更新dom
+
+                        当用户点击某个按钮时继续发出action
+
+                        改变store
+
+                        更新视图
+
+
+                        这就是redux里一个action的生命周期
+
+                        在后面的课程中
+
+                        我将使用redux构建一个todo list应用
+
+                        来展示redux的强大之处
+                    </aside>
+                </section>
 
                 <section style="text-align: left;">
                     <h1>THE END</h1>

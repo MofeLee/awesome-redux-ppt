@@ -67,19 +67,105 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 </section>
 
                 <section>
-                    <h2>前端应用面临的问题</h2>
+                    <section>
+                        <h2>前端应用面临的问题</h2>
 
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
+                        <aside class="notes" data-markdown="">
+                            在谈论应用框架之前
 
-                    <aside class="notes" data-markdown="">
-                        在谈论应用框架之前
+                            我想先谈谈前端应用面临的问题
 
-                        我想先谈谈前端应用面临的问题
-                    </aside>
+                            当我们的应用变得越来越复杂的时候
+
+                            我们需要管理比以前复杂多的状态
+
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>日益复杂的应用状态</h2>
+
+                        <aside class="notes" data-markdown="">
+                            （展示facebook和weibo的组件）
+
+                            这些状态包括服务器响应，缓存数据等
+
+                            事实上，UI的状态也非常复杂
+
+                            管理永远在改变的状态是一件非常困难的事情
+
+                            并且当组件之间发生相互作用的时候
+
+                            再要修改其中一个组件
+
+                            难度系数将会以指数级增长
+                        </aside>
+                    </section>
+
+                    <section>
+
+                        <h2>MVC的问题</h2>
+
+                        <img src="/img/mvc.png" class="fragment">
+
+                        <aside class="notes" data-markdown="">
+                            事实上，在flux出来之前
+
+                            已经有很多公司在管理应用状态做出了很多努力
+
+                            但大部分框架都使用类似MVC的方式来控制应用状态
+
+                            事实上，在某些复杂的页面
+
+                            MVC工作的也很不错
+
+                            但当页面之间的组件相互作用越来越强的时候
+
+                            应用模型会变成这个样子
+
+                            (展示图片)
+
+                            模型和视图之间像一张网一样交织着
+
+                            我们不得不声明很多全局变量来完成一些页面的交互
+
+                            在学习程序语言的过程中，我们知道，全局变量是魔鬼
+
+                            它会使我们的应用发生一些不可预测的事情
+
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Flux是如何解决这个问题的</h2>
+
+                        <img src="/img/flux.png">
+
+                        <aside class="notes" data-markdown="">
+                            为了防止前端复杂页面变的不可预测
+
+                            facebook提出了flux应用架构
+
+                            在flux应用架构中
+
+                            应用状态保存在store中
+
+                            store与model最主要的区别就是store是一个只读对象
+
+                            我们只能通过dispatch一个action
+
+                            也就是调度一个动作来改变store
+
+                            这是我们的数据流动始终是单向的
+
+                            我们给每次改变都起了一个名字，叫做action
+
+                            所以每次改变应用的store都是可追溯的
+
+                            我们终于可以预测我们的应用是如何改变的了！！
+
+                        </aside>
+                    </section>
                 </section>
 
                 <section>

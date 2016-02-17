@@ -158,13 +158,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             也就是调度一个动作来改变store
 
-                            这是我们的数据流动始终是单向的
+                            数据流动始终是单向的
 
                             我们给每次改变都起了一个名字，叫做action
 
                             所以每次改变应用的store都是可追溯的
 
-                            我们终于可以预测我们的应用是如何改变的了！！
+                            我们终于可以知道我们的应用是如何改变的了！！
 
                         </aside>
                     </section>
@@ -222,8 +222,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             我们需要一种可以像docker swarm
 
-                            或者像google的mapreduce一样
-
                             弹性并且无痛的增长我们的应用
 
                             这里简单的提下
@@ -232,17 +230,20 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             基于云运算
 
-                            我们可以在运行高峰时在数分钟内运行起成白上千台应用服务器
+                            我们可以在运行高峰时
+                            在数分钟内启动成百上千台应用服务器同时提供服务
 
                             需要做的只是用docker启动服务
 
-                            它提供一种自动发现网内，并自动配置的机制
+                            它提供一种自动发现,自动配置的机制
+
+                            事实上，我们需要一个无痛增长应用的模式
 
                         </aside>
                     </section>
 
                     <section>
-                        <h2>我们需要发现一种pattern</h2>
+                        <h2>我们需要找到这种pattern!</h2>
 
                         <aside class="notes" data-markdown="">
                             在讨论redux如何实现这个之前
@@ -316,9 +317,9 @@ function(previewsState, action){
 }
                             </code></pre>
                         <aside class="notes" data-markdown="">
-                            在flux里，没有要求一个action作用到store里store的变化形态
+                            在flux里，没有硬性要求一个action作用到store时，store的应该如何改变
 
-                            在redux里我们需要使作用完成之后的store与
+                            但在redux里redux里我们需要使改变后的store与
 
                             作用前的store保持一致
 
@@ -361,7 +362,7 @@ var secondState = reducer(initState, '增加counter');
 
                             判断传入的动作是否为预定义动作
 
-                            如果是，然后返回作用后的结果
+                            如果是，返回作用后的结果
 
                             否则原样返回
 

@@ -238,9 +238,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             它提供一种自动发现网内，并自动配置的机制
 
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>我们需要发现一种pattern(模式、图案)</h2>
+
+                        <aside class="notes" data-markdown="">
                             在讨论redux如何实现这个之前
 
                             我想先谈谈科赫曲线
+
+                            似乎我们能在其中找到一些线索
                         </aside>
                     </section>
 
@@ -283,8 +292,54 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
                             只需要把之前的直线中间涂掉一块
 
-                            继续
+                            继续画三角形
+
+                            实际上，这类似于之前的flux应用模型
+
+                            但是，不同点在于只要每个人都会画三角形
+
+                            我们可以一个人来完成科赫曲线的绘制
+
+                            也可以由成百上千人来完成
+
+                            这个pattern的雏形已经出现了
                         </aside>
+                    </section>
+
+                    <section>
+                        <h2>pattern的雏形</h2>
+                            <pre><code class="javascript" data-trim data-noescape>
+function(previewsState, action){
+    // 一系列相互作用
+
+    return nextState;
+}
+                            </code></pre>
+                        <aside class="notes" data-markdown="">
+                            在flux里，我们不用管一个action作用到store里
+
+                            store的变化形态
+
+                            在redux里
+
+                            我们需要使作用完成之后的store与
+
+                            作用前的store保持一致
+
+                            如果用伪代码实现，就是这样的
+
+                            (展示代码)
+
+                            nextState必须要和previewsState有同样的形式
+
+                            这里的形式就如同科赫曲线中的三角形
+                        </aside>
+
+                    </section>
+
+                    <section>
+                        
+
                     </section>
                 </section>
 

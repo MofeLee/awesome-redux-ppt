@@ -242,7 +242,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     </section>
 
                     <section>
-                        <h2>我们需要发现一种pattern(模式、图案)</h2>
+                        <h2>我们需要发现一种pattern</h2>
 
                         <aside class="notes" data-markdown="">
                             在讨论redux如何实现这个之前
@@ -316,13 +316,9 @@ function(previewsState, action){
 }
                             </code></pre>
                         <aside class="notes" data-markdown="">
-                            在flux里，我们不用管一个action作用到store里
+                            在flux里，没有要求一个action作用到store里store的变化形态
 
-                            store的变化形态
-
-                            在redux里
-
-                            我们需要使作用完成之后的store与
+                            在redux里我们需要使作用完成之后的store与
 
                             作用前的store保持一致
 
@@ -338,8 +334,39 @@ function(previewsState, action){
                     </section>
 
                     <section>
-                        
+                        <h2>进一步理解pattern</h2>
+                        <pre><code class="javascript" data-trim data-noescape>
+function reducer(previewsState, action){
+    if(action === '增加counter'){
+        var nextState = previewsState.counter + 1;
+        return nextState;
+    }
 
+    return previewsState;
+}
+
+var initState = {
+    counter: 0
+};
+
+var secondState = reducer(initState, '增加counter');
+// secondState 现在为
+// {
+//     counter: 1
+// }
+                        </code></pre>
+
+                        <aside class="notes" data-markdown="">
+                            可以看到，这段函数非常简单
+
+                            判断传入的动作是否为预定义动作
+
+                            如果是，然后作用后的结果
+
+                            否则原样返回
+
+                            这段代码已经和redux里的reducer的概念相差不大了
+                        </aside>
                     </section>
                 </section>
 
